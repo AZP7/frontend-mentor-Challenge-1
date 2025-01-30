@@ -1,0 +1,211 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.container{
+    position: relative;
+    min-height: 100vh;
+    background-image: url("./assets/images/background-desktop.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-y: scroll;
+    
+    }
+#firstIcon{
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 60%;
+}
+#firstIcon>svg{
+    scale: 2.2;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+#firstIcon path{
+    stroke-width:1;
+}
+.topR{
+    position: absolute;
+    width: 20%;
+    right: 0;
+    top: 10%;
+}
+.botL{
+    position: absolute;
+    width: 40%;
+    left: 0;
+    bottom: 0;
+}
+.topR path, .botL path{
+    opacity: 0.5;
+    fill: hsl(26, 100%, 56%);
+}
+.generate_card{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.header .headersvg{
+    margin-top: 20px;
+    width: 150px;
+    
+}
+.header h1{
+    margin-top: 10px;
+    font-size:1.7rem;
+    text-align: center;
+    color: #fff;
+}
+.header p{
+    text-align: center;
+    color: lightgray;
+    margin:20px auto 20px auto;
+}
+form{
+    width: 400px;
+}
+form label{
+    color: #fff;
+}
+.img_upload p{
+    color: #fff;
+    margin-bottom: 5px;
+}
+.img_upload {
+    width:100%;
+    height: 120px;
+    margin-bottom: 50px;
+}
+.img_upload label{
+    width: 100%;
+    border: 1px dashed #515151;
+    display: flex;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: transparent;
+    backdrop-filter: blur(200px);
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.img_upload label img{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+.img_upload div button{
+    background-color: transparent;
+    color: #fff;
+    padding: 5px 10px;
+    border: 1px solid #777777;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.img_upload div button:first-child{
+    text-decoration: underline;
+}
+.img_upload .info svg{
+     width: 10px;
+
+}
+.img_upload .info{
+    font-size: 10px;
+}
+form>div{
+    margin-bottom: 25px;
+}
+form>label{
+    width: 100%;
+    display:block;
+    align-items: center;
+}
+form>label>p{
+    margin-left: 10px;
+    font-size: 10px;
+    text-align: center;
+    color: red;
+    width: 200px;
+    display: flex;
+}
+form>div>input{
+    margin-top: 5px;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 7px 0 7px 20px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    backdrop-filter: blur(200px);
+    border-radius: 10px;
+    color: #fff;
+}
+form>button{
+    width: 100%;
+    padding: 7px 0 7px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border:none;
+    border-radius: 10px;
+    background-color: hsl(26, 100%, 56%);
+}
+.error{
+    color: red;
+}
+@media (max-width:830px){
+    .generate_card{
+        width: 70%;
+    }
+    .generate_card .header{
+        width: 100%;   
+    }
+    .generate_card .header h1{
+        font-size: 1.5rem;
+    }
+    .generate_card .header p{
+        font-size: .8rem;
+    }
+    form{
+        width: 80%;
+        padding: 20px;
+    }
+}   
+@media(max-width :760px){
+    form{
+        width: 90%;
+    }
+}
+@media(max-width:550px){
+    .generate_card{
+        width: 100%;
+    }
+    form{
+        width: 80%;
+    }
+}
+@media(max-width:420px){
+    form{
+        width: 100%;
+    }
+}
