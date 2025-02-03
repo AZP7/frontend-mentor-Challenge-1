@@ -115,6 +115,9 @@ form label{
     height: 50px;
     object-fit: contain;
 }
+.img_upload div{
+    display: none;
+}
 .img_upload div button{
     background-color: transparent;
     color: #fff;

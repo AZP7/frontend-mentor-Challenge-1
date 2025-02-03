@@ -1,41 +1,62 @@
-const imageToplace = document.getElementById("imagetoPlace");
-const inputImage = document.getElementById("forImage");
-const imgDisplay = document.getElementById("img_upload");
+const imageInput = document.getElementById("forImage");
+const img_upload  = document.querySelector(".img_upload");
+const buttonContainer = document.getElementById("image_tools");
 
-inputImage.addEventListener("change", uploadImage);
-
-function uploadImage(){
-    imageToplace.innerHTML = "";
-
-    let imageResult = document.createElement("IMG");
-    let button1 = document.createElement("BUTTON");
-    let button2 = document.createElement("BUTTON");
-    let div = document.createElement("DIV");
+document.getElementById("changeImageButton").addEventListener("click",()=>{
+    imageInput.click();
+})
 
 
-    button1.textContent = "Remove Image";
-    button1.id = "remove_img";
-    button2.id = "change_img";
-    button2.textContent = "Change image";
-    
-    let imgurl = URL.createObjectURL(inputImage.files[0]);
+imageInput.addEventListener("change",uploadImage)
 
-    imageToplace.appendChild(imageResult);
-    imageToplace.appendChild(div);
-    div.appendChild(button1);
-    div.appendChild(button2);
+function uploadImage(e){
 
-    imageResult.src = imgurl;
+    const file = e.target.files[0];
+    const fileLimit = 500 * 1024;
+    if(file && file.size > fileLimit){
+        fileError(imageToplace,"File size exceeds the limit of 500KB." )
+    }
+    let ImageResult = document.createElement("IMG");
 
-    button1.addEventListener("click",removeImg);
-    button1.addEventListener("click",changeImg);
+    let url = URL.createObjectURL(e.target.files[0]);
+    imageToplace.children[1].style.display = "none";
+    imageToplace.children[2].style.display = "none";
 
-}
-function removeImg(e){
-    e.preventDefault();
-    imageToplace.removeChild(imageToplace.firstChild);
-}
-function changeImg(e){
-    e.preventDefault();
+    ImageResult.src = url;
+    imageToplace.appendChild(ImageResult);
+
+
+    buttonContainer.style.display = "block"
+
+
 
 }
+
+function fileError(element, message){
+    let errormsg = document.createElement("P");
+    while (element.children.length>1){
+        element.removeChild(imageToplace.children[1]);
+    }
+    errormsg.innerHTML = message;
+    errormsg.style.color = "red";
+    element.appendChild(errormsg);
+
+}
+
+
+function removeImage() {
+    // Hide the button container
+    buttonContainer.style.display = "none";
+
+    // Show the placeholder elements
+    imageToplace.children[1].style.display = "block";
+    imageToplace.children[2].style.display = "block";
+
+    // Remove the uploaded image if it exists
+    let img = imageToplace.querySelector("img");
+    if (img) {
+        imageToplace.removeChild(img);
+    }
+}
+
+document.getElementById("removeImageButton").addEventListener("click", removeImage);
