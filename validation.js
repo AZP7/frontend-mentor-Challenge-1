@@ -5,7 +5,6 @@ const profile = document.getElementById("forImage");
 const generateBtn = document.getElementById("generate");
 const generate_card = document.querySelector(".generate_card");
 const result = document.querySelector(".result");
-const imageToplace = document.getElementById("imagetoPlace");
 
 
 
